@@ -1,0 +1,42 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "athena:GetWorkGroup",
+                "s3:PutObject",
+                "s3:GetObject",
+                "athena:StartQueryExecution",
+                "s3:AbortMultipartUpload",
+                "lambda:InvokeFunction",
+                "athena:CancelQueryExecution",
+                "athena:StopQueryExecution",
+                "athena:GetQueryExecution",
+                "athena:GetQueryResults",
+                "s3:ListMultipartUploadParts"
+            ],
+            "Resource": [
+                "arn:aws:athena:*:123456789012:workgroup/primary",
+                "arn:aws:s3:::aws-tech-talks/*",
+                "arn:aws:lambda:*:123456789012:function:aws_tech_talks_apigw"
+            ]
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "athena:ListWorkGroups",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::aws-tech-talks"
+        }
+    ]
+}
